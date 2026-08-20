@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SSH } from 'capacitor-ssh';
 
 @Component({
   selector: 'app-home',
@@ -11,5 +12,11 @@ export class Home {
   public async onButtonSSH(event: Event){
     event.preventDefault();
     
+    console.log("try ssh");
+    const response = await SSH.echo({value: "Hello capacitor-ssh"});
+    console.log(response.value);
   }
 }
+
+
+
