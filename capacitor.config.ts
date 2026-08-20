@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'org.leinelab.keyapp-capacitor',
+  appId: 'org.leinelab.keyappcap',
   appName: 'leinelapp-capacitor',
   webDir: 'dist/leinelapp-capacitor/browser'
 };

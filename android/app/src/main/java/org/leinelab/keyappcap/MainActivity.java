@@ -1,4 +1,4 @@
-package org.leinelab.keyapp_capacitor;
+package org.leinelab.keyappcap;
 
 import com.getcapacitor.BridgeActivity;
 

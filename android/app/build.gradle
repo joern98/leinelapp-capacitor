@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace = "org.leinelab.keyapp_capacitor"
+    namespace = "org.leinelab.keyappcap"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "org.leinelab.keyapp_capacitor"
+        applicationId "org.leinelab.keyappcap"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
