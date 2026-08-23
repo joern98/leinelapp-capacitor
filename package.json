@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && npx cap sync",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -21,6 +21,7 @@
     "@capacitor/angular": "^2.0.3",
     "@capacitor/core": "latest",
     "@capacitor/ios": "^8.5.0",
+    "ansi-regex": "^6.3.0",
     "capacitor-ssh": "file:../capacitor-ssh",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
