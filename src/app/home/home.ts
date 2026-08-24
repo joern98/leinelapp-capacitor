@@ -12,7 +12,8 @@ import { form, FormField } from '@angular/forms/signals';
 export class Home {
 
   inputModel = signal({
-    text: ""
+    text: "",
+    privateKey: "",
   });
   inputForm = form(this.inputModel);
 
@@ -26,10 +27,12 @@ export class Home {
     
     console.log("try ssh");
     const sshConnectOptions: SSHConnectOptions = {
-      host: "192.168.145.23",
-      username: "joern-admin",
-      password: "Porto.in.Portugal-2025%",
-    }
+      host: "localhost",
+      port: 2222,
+      username: "me",
+      privateKey: this.inputForm.privateKey().value().replaceAll(RegExp("\w", "g"), ""),
+    };
+    console.log(sshConnectOptions)
     const {sessionId} = await SSH.connect({connection: sshConnectOptions});
     console.log(`got session id ${sessionId} from plugin`);
     this.sessionId = sessionId
