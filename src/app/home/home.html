@@ -1,2 +1,10 @@
-<h1>home works!</h1>
-<button (click)="onButtonSSH($event)">Test SSH</button>
+<main>
+    <button (click)="onButtonSSH($event)">Test SSH</button>
+    <form>
+        <input type="text" class="t" [formField]="inputForm.text">
+        <button (click)="onButtonWriteToShell($event)">Write to Shell</button>
+    </form>
+    <p class="shell-output">
+    {{shellOutput()}}
+    </p>
+</main>

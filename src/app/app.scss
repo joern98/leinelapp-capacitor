@@ -52,8 +52,10 @@ p {
 main {
     width: 100%;
     min-height: 100%;
+    margin-top: 40px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
     align-items: center;
     padding: 1rem;
     box-sizing: inherit;
