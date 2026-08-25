@@ -29,8 +29,10 @@ export class Home {
     const sshConnectOptions: SSHConnectOptions = {
       host: "localhost",
       port: 2222,
-      username: "me",
-      privateKey: this.inputForm.privateKey().value().replaceAll(RegExp("\w", "g"), ""),
+      username: "joern",
+      // replace whitespaces in OpenSSH Key
+      privateKey: this.inputForm.privateKey().value().replaceAll(/^\s+|\s+$|\s+(?=\s)|\n+/g, ""),
+      hostKeyVerification: "skip",
     };
     console.log(sshConnectOptions)
     const {sessionId} = await SSH.connect({connection: sshConnectOptions});

@@ -1,7 +1,7 @@
 <main>
     <button (click)="onButtonSSH($event)">Test SSH</button>
     <form>
-        <input type="text" class="t" [formField]="inputForm.privateKey">
+        <textarea type="text" class="t" [formField]="inputForm.privateKey"></textarea>
         <input type="text" class="t" [formField]="inputForm.text">
         <button (click)="onButtonWriteToShell($event)">Write to Shell</button>
     </form>
