@@ -24,7 +24,7 @@
 
 html {
   //`light dark` to defer to the user's system settings.
-  color-scheme: light dark;
+  color-scheme: light;
   height: 100%;
   @include mat.theme(
     (
@@ -77,6 +77,9 @@ body {
 
   // Kill the mobile tap-highlight flash on buttons/links
   -webkit-tap-highlight-color: transparent;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // Re-enable selection where users actually need to copy text
@@ -113,8 +116,8 @@ app-root {
 // Give scrollable regions (e.g. inside mat-sidenav-content, ion-like pages)
 // their own momentum scrolling instead of the document.
 .scroll-region,
-.mat-sidenav-content,
-.mat-drawer-content {
+mat-sidenav-content,
+mat-drawer-content {
   // height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
