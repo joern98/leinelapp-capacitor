@@ -31,7 +31,7 @@ export class Home {
       port: 2222,
       username: "joern",
       // replace whitespaces in OpenSSH Key
-      privateKey: this.inputForm.privateKey().value().replaceAll(/^\s+|\s+$|\s+(?=\s)|\n+/g, ""),
+      privateKey: this.inputForm.privateKey().value(),
       hostKeyVerification: "skip",
     };
     console.log(sshConnectOptions)

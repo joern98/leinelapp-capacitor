@@ -1,1 +1,135 @@
-/* You can add global styles to this file, and also import other style files */
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+:root {
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+
+  // Use dynamic viewport height so mobile browser/webview chrome
+  // (address bars, keyboard) doesn't leave dead space or overflow.
+  --app-height: 100dvh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  //`light dark` to defer to the user's system settings.
+  color-scheme: light dark;
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+  @include mat.system-classes();
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; // the app shell owns scrolling, not the document
+  -webkit-text-size-adjust: 100%; // prevent iOS auto text-zoom
+}
+
+body {
+
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: var(--app-height);
+  width: 100vw;
+  position: fixed;
+  inset: 0;
+
+  // Disable pull-to-refresh / overscroll glow & native touch gestures
+  // that fight with app UI (swipe-back, double-tap-zoom, etc.)
+  overscroll-behavior: none;
+  touch-action: manipulation;
+
+  // Mobile apps generally shouldn't allow text selection outside inputs
+  user-select: none;
+  -webkit-user-select: none;
+
+  // Kill the mobile tap-highlight flash on buttons/links
+  -webkit-tap-highlight-color: transparent;
+}
+
+// Re-enable selection where users actually need to copy text
+input,
+textarea,
+[contenteditable='true'],
+.selectable-text {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+// ---- app-root fills the canvas ---------------------------------------
+app-root {
+  display: block;
+  position: fixed;
+  inset: 0;
+  height: var(--app-height);
+  width: 100vw;
+  overflow: hidden;
+
+  // Push content in from the notch / home indicator / status bar
+  padding-top: var(--safe-area-top);
+  padding-right: var(--safe-area-right);
+  padding-bottom: var(--safe-area-bottom);
+  padding-left: var(--safe-area-left);
+}
+
+// ---- 5. Scrollable content areas -----------------------------------------
+// Give scrollable regions (e.g. inside mat-sidenav-content, ion-like pages)
+// their own momentum scrolling instead of the document.
+.scroll-region,
+.mat-sidenav-content,
+.mat-drawer-content {
+  // height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.ignore-safe-area {
+  padding: 0 !important;
+}
+
+
+// iOS Safari/WKWebView zooms the viewport if an input's font-size < 16px.
+// input,
+// select,
+// textarea {
+//   font-size: max(16px, 1rem);
+//}
