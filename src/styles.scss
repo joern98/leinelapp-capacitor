@@ -123,6 +123,7 @@ mat-drawer-content {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  height: 100vh;
 }
 
 .ignore-safe-area {
