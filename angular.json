@@ -10,7 +10,10 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "addTypeToClassName": true,
+          "type": "component",
+          "displayBlock": true
         }
       },
       "root": "",

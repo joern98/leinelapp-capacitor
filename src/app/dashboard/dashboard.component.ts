@@ -17,7 +17,6 @@ import { AlarmUg } from "./cards/alarm-ug/alarm-ug";
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   imports: [
-    AsyncPipe,
     MatGridListModule,
     MatMenuModule,
     MatIconModule,

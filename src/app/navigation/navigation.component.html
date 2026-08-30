@@ -10,9 +10,13 @@
     [opened]="isHandset === false"
   >
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item routerLink="/actions">Actions</a>
-      <a mat-list-item routerLink="/keys">Key Management</a>
+    <mat-nav-list aria-label="App navigation">
+      <li>
+        <a mat-list-item routerLink="/actions" (click)="drawer.mode == 'over' && drawer.toggle()">Actions</a>
+      </li>
+      <li>
+        <a mat-list-item routerLink="/settings" (click)="drawer.mode == 'over' && drawer.toggle()">Settings</a>
+      </li>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -24,6 +28,8 @@
       }
       <span>leinelapp-capacitor</span>
     </mat-toolbar>
+
     <ng-content/>
+  
   </mat-sidenav-content>
 </mat-sidenav-container>
